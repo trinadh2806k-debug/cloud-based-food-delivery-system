@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NimbusBite | Cloud Food Delivery (INR ₹ Pricing)</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+        <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+    <!-- Top Global Cloud Bar -->
+    <header class="global-cloud-bar">
+        <div class="container bar-content">
+            <div class="cloud-status-indicator">
+                <span class="pulse-dot" id="global-pulse-dot"></span>
+                <span class="status-text" id="global-status-text">AWS US-East & EU-Central | <strong>All Cloud Systems Operational</strong></span>
+            </div>
+            <div class="metrics-ticker">
+                <div class="metric-item"><i class="fa-solid fa-bolt"></i> Latency: <span id="ticker-latency">9.4ms</span></div>
+                <div class="metric-item"><i class="fa-solid fa-server"></i> Active Lambdas: <span id="ticker-lambdas">1,482</span></div>
+                <div class="metric-item"><i class="fa-solid fa-utensils"></i> Orders/sec: <span id="ticker-ops">142</span></div>
+                <div class="metric-item"><i class="fa-solid fa-shield-halved"></i> Active Region: <span id="ticker-region">US-EAST-1 (Primary)</span></div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navigation Header -->
+    <nav class="main-navbar">
+        <div class="container nav-container">
+            <a href="#" class="brand-logo">
+                <div class="logo-icon"><i class="fa-solid fa-cloud-bolt"></i></div>
+                <div class="logo-text">
+                    <span class="brand-name">Nimbus<span class="accent-text">Bite</span></span>
+                    <span class="brand-tag">CLOUD LOGISTICS v3.4</span>
+                </div>
+            </a>
+            <div class="nav-links">
+                <button class="nav-btn active" data-tab="tab-ordering"><i class="fa-solid fa-utensils"></i> Cloud Kitchens</button>
+                <button class="nav-btn" data-tab="tab-tracking"><i class="fa-solid fa-location-dot"></i> Live Tracking</button>
+                <button class="nav-btn" data-tab="tab-kitchen"><i class="fa-solid fa-fire"></i> Kitchen Terminal</button>
+                <button class="nav-btn" data-tab="tab-dashboard"><i class="fa-solid fa-chart-line"></i> Ops Dashboard</button>
+                <button class="nav-btn" data-tab="tab-architecture"><i class="fa-solid fa-sitemap"></i> Architecture</button>
+            </div>
+            
+            <div class="nav-actions">
+                <button class="cart-trigger-btn" id="open-cart-btn">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span class="cart-badge" id="cart-count">0</span>
+                    <span id="cart-total-nav">₹0.00</span>
+                </button>
+
+                <div id="nav-auth-container">
+                    <button class="btn btn-outline" id="open-login-btn">
+                        <i class="fa-solid fa-envelope"></i> Email Sign In
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Banner -->
+    <main class="main-content">
+        <section class="hero-banner">
+            <div class="container hero-container">
+                <div class="hero-text-col">
+                    <div class="cloud-pill"><i class="fa-solid fa-cloud"></i> Multi-Region Serverless Architecture</div>
+                    <h1 class="hero-title">Hyper-Fast Delivery Engine for <span class="gradient-text">Global & Indian Cuisines</span></h1>
+                    <p class="hero-subtitle">Microsecond order routing, authentic Indian curries & biryanis, autonomous drone telemetry, and multi-region failover.</p>
+                    <div class="hero-stats-grid">
+                        <div class="hero-stat-card"><div class="stat-value">14m 20s</div><div class="stat-label">Avg Cloud Delivery</div></div>
+                        <div class="hero-stat-card"><div class="stat-value">100%</div><div class="stat-label">Serverless Scaling</div></div>
+                        <div class="hero-stat-card"><div class="stat-value"><i class="fa-solid fa-microchip"></i> AI</div><div class="stat-label">Route Optimization</div></div>
+                    </div>
+                </div>
+                <div class="hero-visual-col">
+                    <div class="cloud-node-card glass-panel">
+                        <div class="node-header"><span class="node-title"><i class="fa-solid fa-network-wired"></i> Edge Cluster #US-EAST-09</span><span class="node-badge">LIVE</span></div>
+                        <div class="node-visualizer">
+                            <div class="cloud-core"><i class="fa-solid fa-cloud-bolt"></i></div>
+                            <div class="orbital-ring ring-1">
+                                <div class="orbital-node n1" title="API Gateway"><i class="fa-solid fa-door-open"></i></div>
+                                <div class="orbital-node n2" title="Kafka Stream"><i class="fa-solid fa-wave-square"></i></div>
+                                <div class="orbital-node n3" title="Geo Dispatch Engine"><i class="fa-solid fa-route"></i></div>
+                            </div>
+                            <div class="orbital-ring ring-2">
+                                <div class="orbital-node n4" title="Payment Lambda"><i class="fa-solid fa-credit-card"></i></div>
+                                <div class="orbital-node n5" title="Drone Mesh"><i class="fa-solid fa-drone"></i></div>
+                            </div>
+                        </div>
+                        <div class="node-footer-metrics">
+                            <div class="mini-metric"><span>CPU Utilization</span><strong id="node-cpu">24.8%</strong></div>
+                            <div class="mini-metric"><span>Queue Depth</span><strong>0 msgs</strong></div>
+                            <div class="mini-metric"><span>Active Shards</span><strong>16/16</strong></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 1: Cloud Kitchens with Indian Cuisine Filter & INR Pricing -->
+        <section class="tab-pane active" id="tab-ordering">
+            <div class="container">
+                <div class="section-header">
+                    <div><h2 class="section-title">Cloud Kitchen Partners</h2><p class="section-subtitle">Real-time inventory synced via DynamoDB distributed cache.</p></div>
+                    <div class="filter-controls">
+                        <button class="filter-btn active" data-category="all">All Kitchens</button>
+                        <button class="filter-btn" data-category="indian"><i class="fa-solid fa-pepper-hot"></i> Indian Cuisines</button>
+                        <button class="filter-btn" data-category="burgers"><i class="fa-solid fa-burger"></i> Cyber Burgers</button>
+                        <button class="filter-btn" data-category="sushi"><i class="fa-solid fa-fish"></i> Quantum Sushi</button>
+                        <button class="filter-btn" data-category="pizza"><i class="fa-solid fa-pizza-slice"></i> Nebula Pizza</button>
+                    </div>
+                </div>
+                <div class="menu-grid" id="menu-items-grid"></div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Dispatch & Telemetry Map -->
+        <section class="tab-pane" id="tab-tracking">
+            <div class="container">
+                <div class="section-header">
+                    <div><h2 class="section-title">Real-Time Dispatch Telemetry</h2><p class="section-subtitle">Live IoT stream carrying drone GPS coordinates.</p></div>
+                    <button class="btn btn-secondary" id="simulate-order-btn"><i class="fa-solid fa-play"></i> Simulate Dispatch Order</button>
+                </div>
+                <div class="tracking-grid">
+                    <div class="glass-panel map-container">
+                        <div class="map-header">
+                            <div><span class="pulse-dot active"></span> Stream: <code>wss://geo.nimbusbite.cloud/v3/feed</code></div>
+                            <div>Autonomous Drone Mesh: <strong class="text-success">Active</strong></div>
+                        </div>
+                        <div class="map-viewport">
+                            <div class="map-grid-lines"></div>
+                            <div class="ai-heatmap-zone zone-1"></div>
+                            <div class="ai-heatmap-zone zone-2"></div>
+                            <div class="map-marker kitchen-marker" style="left: 20%; top: 30%;"><i class="fa-solid fa-store"></i><span class="marker-label">Vedic Hub Alpha</span></div>
+                            <div class="map-marker customer-marker" style="left: 80%; top: 75%;"><i class="fa-solid fa-house-user"></i><span class="marker-label">Dropoff</span></div>
+                            <div class="map-marker vehicle-marker" id="live-drone-marker" style="left: 20%; top: 30%;">
+                                <div class="vehicle-icon"><i class="fa-solid fa-drone"></i></div>
+                                <div class="vehicle-tag">Drone-X9 (<span id="drone-eta">12 min</span>)</div>
+                            </div>
+                            <svg class="map-path-svg" width="100%" height="100%"><path d="M 120 150 Q 300 100 480 375" fill="none" stroke="var(--accent-cyan)" stroke-width="3" stroke-dasharray="6,6"/></svg>
+                        </div>
+                        <div class="map-telemetry-bar">
+                            <div>Altitude: <strong id="tel-alt">120m</strong></div>
+                            <div>Speed: <strong id="tel-speed">48 km/h</strong></div>
+                            <div>Battery: <strong>89%</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="glass-panel tracking-info-panel">
+                        <h3 class="panel-heading"><i class="fa-solid fa-timeline"></i> Dispatch Pipeline</h3>
+                        <div class="order-pipeline">
+                            <div class="pipeline-step completed"><div class="step-icon"><i class="fa-solid fa-cloud-arrow-up"></i></div><div>Order Received (API Gateway)</div></div>
+                            <div class="pipeline-step completed"><div class="step-icon"><i class="fa-solid fa-fire"></i></div><div>Cloud Kitchen Prep</div></div>
+                            <div class="pipeline-step active"><div class="step-icon"><i class="fa-solid fa-drone"></i></div><div>Drone Dispatched</div></div>
+                            <div class="pipeline-step" id="step-delivered"><div class="step-icon"><i class="fa-solid fa-circle-check"></i></div><div>Final Dropoff</div></div>
+                        </div>
+                        <h4 style="margin: 20px 0 10px;"><i class="fa-solid fa-terminal"></i> Kafka Event Topics</h4>
+                        <div class="event-terminal" id="event-terminal-log">
+                            <div><span class="log-time">[16:59:12]</span> <span class="log-topic">orders.created</span> -> Butter Chicken & Biryani order validated.</div>
+                            <div><span class="log-time">[16:59:15]</span> <span class="log-topic">payments.processed</span> -> Stripe 200 OK.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 3: Kitchen Terminal -->
+        <section class="tab-pane" id="tab-kitchen">
+            <div class="container">
+                <div class="section-header">
+                    <div><h2 class="section-title">Cloud Kitchen Operator Terminal</h2><p class="section-subtitle">Real-time order prep queue synchronized via WebSockets.</p></div>
+                    <button class="btn btn-outline" id="add-mock-order-btn"><i class="fa-solid fa-plus"></i> Inject Mock Order to Station</button>
+                </div>
+                <div class="kitchen-queue-grid" id="kitchen-queue-grid"></div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Cloud Telemetry Dashboard -->
+        <section class="tab-pane" id="tab-dashboard">
+            <div class="container">
+                <div class="section-header">
+                    <div><h2 class="section-title">Cloud Infrastructure Telemetry</h2><p class="section-subtitle">Real-time health monitoring of microservices and multi-region failover.</p></div>
+                    <div style="display:flex; gap:10px;">
+                        <button class="btn btn-outline" id="trigger-spike-btn"><i class="fa-solid fa-bolt"></i> Rush (+5,000 reqs/sec)</button>
+                        <button class="btn btn-secondary" id="trigger-failover-btn"><i class="fa-solid fa-triangle-exclamation"></i> Failover (US-East Outage)</button>
+                    </div>
+                </div>
+                <div class="dashboard-grid">
+                    <div class="dash-card glass-panel"><div class="card-head"><span>API Gateway Throughput</span><span class="badge green">Healthy</span></div><div class="card-big-stat" id="dash-throughput">4,280 <small>req/sec</small></div><div class="stat-progress"><div class="progress-bar" style="width: 42%;" id="bar-throughput"></div></div></div>
+                    <div class="dash-card glass-panel"><div class="card-head"><span>p99 Latency</span><span class="badge blue">Optimal</span></div><div class="card-big-stat" id="dash-latency">11.2 <small>ms</small></div><div class="stat-progress"><div class="progress-bar" style="width: 20%;" id="bar-latency"></div></div></div>
+                    <div class="dash-card glass-panel"><div class="card-head"><span>Auto-Scaling Pods</span><span class="badge purple">Active</span></div><div class="card-big-stat" id="dash-pods">64 / 256</div><div class="stat-progress"><div class="progress-bar" style="width: 25%;" id="bar-pods"></div></div></div>
+                    <div class="dash-card glass-panel"><div class="card-head"><span>DynamoDB IOPS</span><span class="badge green">Distributed</span></div><div class="card-big-stat" id="dash-iops">18,500 <small>IOPS</small></div><div class="stat-progress"><div class="progress-bar" style="width: 35%;" id="bar-iops"></div></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 5: Architecture Diagram -->
+        <section class="tab-pane" id="tab-architecture">
+            <div class="container">
+                <div class="section-header"><div><h2 class="section-title">Cloud Architecture Diagram</h2><p class="section-subtitle">Fault-tolerant serverless architecture pipeline.</p></div></div>
+                <div class="glass-panel architecture-container">
+                    <div class="arch-flow">
+                        <div class="arch-layer"><div class="layer-title">1. Client Layer</div><div class="arch-card"><h4>Customer App</h4><p>HTML5 / PWA</p></div></div>
+                        <div class="arch-layer"><div class="layer-title">2. Edge Gateway</div><div class="arch-card highlight"><h4>API Gateway</h4><p>Auth & Throttling</p></div></div>
+                        <div class="arch-layer"><div class="layer-title">3. Serverless Mesh</div><div class="arch-card"><h4>AWS Lambda / Kafka</h4><p>Microservices</p></div></div>
+                        <div class="arch-layer"><div class="layer-title">4. Multi-Region DB</div><div class="arch-card"><h4>DynamoDB Global</h4><p>Multi-Region Replicas</p></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Cart Drawer with INR ₹ Totals -->
+    <div class="cart-drawer-overlay" id="cart-drawer">
+        <div class="cart-drawer-content">
+            <div class="drawer-header"><h3><i class="fa-solid fa-bag-shopping"></i> Your Cloud Order</h3><button class="close-btn" id="close-cart-btn"><i class="fa-solid fa-xmark"></i></button></div>
+            <div class="drawer-body" id="cart-items-container"></div>
+            <div class="drawer-footer">
+                <div class="summary-line"><span>Subtotal</span><span id="cart-subtotal">₹0.00</span></div>
+                <div class="summary-line"><span>Cloud Serverless Dispatch Fee</span><span>₹49.00</span></div>
+                <div class="summary-line total"><span>Total Amount</span><span id="cart-grand-total">₹49.00</span></div>
+                <button class="btn btn-primary btn-block" id="checkout-btn" disabled><i class="fa-solid fa-bolt"></i> Place Cloud Order (₹ INR)</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Email Authentication Modal -->
+    <div class="modal-overlay" id="login-modal">
+        <div class="modal-card">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start;">
+                <div>
+                    <h3 class="modal-title"><i class="fa-solid fa-envelope accent-text"></i> Email Portal</h3>
+                    <p class="modal-subtitle">Cloud User Authentication & JWT Session</p>
+                </div>
+                <button class="close-btn" id="close-login-btn"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div class="auth-tab-buttons">
+                <button class="auth-tab-btn active" id="tab-btn-signin">Sign In</button>
+                <button class="auth-tab-btn" id="tab-btn-register">Register New Account</button>
+            </div>
+
+            <form id="signin-form">
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="signin-email" placeholder="user@nimbusbite.cloud" value="aarav.sharma@nimbusbite.cloud" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="signin-password" value="Password123" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">
+                    <i class="fa-solid fa-right-to-bracket"></i> Sign In to Account
+                </button>
+            </form>
+
+            <form id="register-form" class="hidden">
+                <div class="form-group">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-input" id="reg-name" placeholder="John Doe" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" id="reg-email" placeholder="john@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Create Password</label>
+                    <input type="password" class="form-input" id="reg-password" placeholder="Min 6 characters" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block" style="margin-top: 10px;">
+                    <i class="fa-solid fa-user-plus"></i> Create Cloud Account
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div class="toast-container" id="toast-container"></div>
+
+        <script src="script.js"></script>
+</body>
+</html>
